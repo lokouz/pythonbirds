@@ -1,13 +1,21 @@
 class Pessoa:
     olhos = 2
 
-    def __init__(self, *filhos, nome=None, idade=35):
+    def __init__(self, *filhos, nome=None, idade=36):
         self.idade = idade
         self.nome = nome
         self.filhos = list(filhos)
 
     def cumprimenetar(self):
         return f'ola {id(self)}'
+
+    @staticmethod
+    def metodo_estatico():
+        return 42
+
+    @classmethod
+    def nome_e_atributos_de_classe(cls):
+        return f'{cls} - olhos {cls.olhos}'
 
 if __name__== '__main__':
     takechi = Pessoa(nome='takechi')
@@ -30,3 +38,5 @@ if __name__== '__main__':
     print(fabio.olhos)
     print(takechi.olhos)
     print(id(Pessoa.olhos), id(fabio.olhos), id(takechi.olhos))
+    print(Pessoa.metodo_estatico(), fabio.metodo_estatico())
+    print(Pessoa.nome_e_atributos_de_classe(), fabio.nome_e_atributos_de_classe())
